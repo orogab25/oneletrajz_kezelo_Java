@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ctrl.ViewController">
+	<children>
+
+		<AnchorPane fx:id="apOneletrajz" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1150.0">
+			<children>
+
+				<TableView fx:id="tableOneletrajz" layoutX="26.0" layoutY="51.0" onMouseClicked="#rowClicked" prefHeight="500.0" prefWidth="860.0">
+					<columns>
+                  <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+						<TableColumn fx:id="colNev" prefWidth="150.0" text="Név" />
+						<TableColumn fx:id="colSzulHely" prefWidth="100.0" text="Születési hely" />
+						<TableColumn fx:id="colSzulIdo" prefWidth="100.0" text="Születési idő" />
+						<TableColumn fx:id="colAllam" prefWidth="100.0" text="Állampolgárság" />
+						<TableColumn fx:id="colEmail" prefWidth="120.0" text="Email" />
+						<TableColumn fx:id="colTelefon" prefWidth="120.0" text="Telefon" />
+						<TableColumn fx:id="colLetrehozas" prefWidth="120.0" text="Létrehozás dátuma" />
+					</columns>
+				</TableView>
+
+				<HBox layoutX="700.0" layoutY="362.0" spacing="5.0" />
+
+				<VBox layoutX="900.0" layoutY="85.0" spacing="10.0">
+					<children>
+                  <VBox spacing="3.0">
+                     <children>
+                        <Label layoutX="714.0" layoutY="165.0" text="ID" />
+                        <TextField fx:id="txtId" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="ID" />
+                     </children>
+                  </VBox>
+						<VBox layoutX="714.0" layoutY="165.0" spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Név" />
+								<TextField fx:id="txtNev" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="Név" />
+							</children>
+						</VBox>
+						<VBox layoutX="712.0" layoutY="210.0" spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Születési hely" />
+								<TextField fx:id="txtSzulHely" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="Születési hely" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Születési idő" />
+								<TextField fx:id="txtSzulIdo" prefHeight="25.0" prefWidth="228.0" promptText="Születési idő" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Állampolgárság" />
+								<TextField fx:id="txtAllam" prefHeight="25.0" prefWidth="228.0" promptText="Állampolgárság" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Email" />
+								<TextField fx:id="txtEmail" prefHeight="25.0" prefWidth="228.0" promptText="Email" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label text="Telefon" />
+								<TextField fx:id="txtTelefon" prefHeight="25.0" prefWidth="228.0" promptText="Telefon" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label text="Létrehozás dátuma" />
+								<TextField fx:id="txtLetrehozas" prefHeight="25.0" prefWidth="228.0" promptText="Létrehozás dátuma" />
+							</children>
+						</VBox>
+					</children>
+				</VBox>
+
+				<Button fx:id="btnSave" layoutX="980.0" layoutY="525.0" mnemonicParsing="false" onAction="#doSave" prefHeight="25.0" prefWidth="75.0" text="Mentés" />
+				<Button fx:id="btnNew" layoutX="900.0" layoutY="525.0" mnemonicParsing="false" onAction="#doNew" prefHeight="25.0" prefWidth="75.0" text="Új" />
+				<Button fx:id="btnDelete" layoutX="1060.0" layoutY="525.0" mnemonicParsing="false" onAction="#doDelete" prefHeight="25.0" prefWidth="70.0" text="Törlés" />
+				<Label layoutX="530.0" layoutY="15.0" text="Önéletrajzok">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Button fx:id="btnTanulmanyok" layoutX="900.0" layoutY="560.0" mnemonicParsing="false" onAction="#doTanulmanyok" prefHeight="30.0" prefWidth="110.0" text="Tanulmányok">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Button>
+				<Button fx:id="btnMunkak" layoutX="1020.0" layoutY="560.0" mnemonicParsing="false" onAction="#doMunkak" prefHeight="30.0" prefWidth="110.0" text="Munkák">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Button>
+				<Label layoutX="900.0" layoutY="55.0" text="Adatkezelés:">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Label>
+
+			</children>
+		</AnchorPane>
+		<AnchorPane fx:id="apTanulmany" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1150.0" visible="false">
+			<children>
+				<TableView fx:id="tableTanulmany" layoutX="26.0" layoutY="51.0" onMouseClicked="#rowClicked1" prefHeight="500.0" prefWidth="860.0">
+					<columns>
+                  <TableColumn fx:id="colId1" prefWidth="50.0" text="ID" />
+						<TableColumn fx:id="colTanulmanyNev" prefWidth="150.0" text="Tanulmány neve" />
+						<TableColumn fx:id="colTanulmanyKezdet" prefWidth="120.0" text="Tanulmány kezdete" />
+						<TableColumn fx:id="colTanulmanyVeg" prefWidth="120.0" text="Tanulmány vége" />
+						<TableColumn fx:id="colEredmeny" prefWidth="120.0" text="Eredmény" />
+                  <TableColumn fx:id="colTulaj1" prefWidth="50.0" text="TulajID" />
+					</columns>
+				</TableView>
+				<HBox layoutX="700.0" layoutY="362.0" spacing="5.0" />
+				<VBox layoutX="900.0" layoutY="85.0" spacing="10.0">
+					<children>
+                  <VBox spacing="3.0">
+                     <children>
+                        <Label layoutX="714.0" layoutY="165.0" text="ID" />
+                        <TextField fx:id="txtId1" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="ID" />
+                     </children>
+                  </VBox>
+						<VBox layoutX="714.0" layoutY="165.0" spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Tanulmány neve" />
+								<TextField fx:id="txtTanulmanyNev" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="Tanulmány neve" />
+							</children>
+						</VBox>
+						<VBox layoutX="712.0" layoutY="210.0" spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Tanulmány kezdete" />
+								<TextField fx:id="txtTanulmanyKezdet" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="Tanulmány kezdete" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Tanulmány vége" />
+								<TextField fx:id="txtTanulmanyVeg" prefHeight="25.0" prefWidth="228.0" promptText="Tanulmány vége" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Eredmény" />
+								<TextField fx:id="txtEredmeny" prefHeight="25.0" prefWidth="228.0" promptText="Eredmény" />
+							</children>
+						</VBox>
+                  <VBox spacing="3.0">
+                     <children>
+                        <Label layoutX="714.0" layoutY="165.0" text="TulajID" />
+                        <TextField fx:id="txtTulaj1" editable="false" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="TulajID" />
+                     </children>
+                  </VBox>
+					</children>
+				</VBox>
+				<Button fx:id="btnSave1" layoutX="980.0" layoutY="425.0" mnemonicParsing="false" onAction="#doSave1" prefHeight="25.0" prefWidth="75.0" text="Mentés" />
+				<Button fx:id="btnNew1" layoutX="900.0" layoutY="425.0" mnemonicParsing="false" onAction="#doNew1" prefHeight="25.0" prefWidth="75.0" text="Új" />
+				<Button fx:id="btnDelete1" layoutX="1060.0" layoutY="425.0" mnemonicParsing="false" onAction="#doDelete1" prefHeight="25.0" prefWidth="70.0" text="Törlés" />
+				<Label layoutX="528.0" layoutY="15.0" text="Tanulmányok">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Label layoutX="900.0" layoutY="55.0" text="Adatkezelés:">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Label>
+				<Label layoutX="25.0" layoutY="15.0" text="Tulajdonos:">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lblTulaj1" layoutX="115.0" layoutY="15.0" text="Tulaj">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+            <Button fx:id="btnBezaras1" layoutX="1070.0" layoutY="15.0" mnemonicParsing="false" onAction="#doBezaras1" text="Vissza" />
+			</children>
+		</AnchorPane>
+		<AnchorPane fx:id="apMunka" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="1150.0" visible="false">
+			<children>
+				<TableView fx:id="tableMunka" layoutX="26.0" layoutY="51.0" onMouseClicked="#rowClicked2" prefHeight="500.0" prefWidth="860.0">
+					<columns>
+                  <TableColumn fx:id="colId2" prefWidth="50.0" text="ID" />
+						<TableColumn fx:id="colMunkaNev" prefWidth="150.0" text="Munka neve" />
+						<TableColumn fx:id="colMunkaKezdet" prefWidth="120.0" text="Munka kezdete" />
+						<TableColumn fx:id="colMunkaVeg" prefWidth="120.0" text="Munka vége" />
+						<TableColumn fx:id="colBeosztas" prefWidth="120.0" text="Beosztás" />
+						<TableColumn fx:id="colFeladatok" prefWidth="250.0" text="Feladatok" />
+                  <TableColumn fx:id="colTulaj2" prefWidth="50.0" text="TulajID" />
+					</columns>
+				</TableView>
+				<HBox layoutX="700.0" layoutY="362.0" spacing="5.0" />
+				<VBox layoutX="900.0" layoutY="85.0" spacing="10.0">
+					<children>
+                  <VBox spacing="3.0">
+                     <children>
+                        <Label layoutX="714.0" layoutY="165.0" text="ID" />
+                        <TextField fx:id="txtId2" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="ID" />
+                     </children>
+                  </VBox>
+						<VBox layoutX="714.0" layoutY="165.0" spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Munka neve" />
+								<TextField fx:id="txtMunkaNev" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="Munka neve" />
+							</children>
+						</VBox>
+						<VBox layoutX="712.0" layoutY="210.0" spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Munka kezdete" />
+								<TextField fx:id="txtMunkaKezdet" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="Munka kezdete" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Munka vége" />
+								<TextField fx:id="txtMunkaVeg" prefHeight="25.0" prefWidth="228.0" promptText="Munka vége" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Beosztás" />
+								<TextField fx:id="txtBeosztas" prefHeight="25.0" prefWidth="228.0" promptText="Beosztás" />
+							</children>
+						</VBox>
+						<VBox spacing="3.0">
+							<children>
+								<Label layoutX="714.0" layoutY="165.0" text="Feladatok" />
+								<TextField fx:id="txtFeladatok" prefHeight="25.0" prefWidth="228.0" promptText="Feladatok" />
+							</children>
+						</VBox>
+                  <VBox spacing="3.0">
+                     <children>
+                        <Label layoutX="714.0" layoutY="165.0" text="TulajID" />
+                        <TextField fx:id="txtTulaj2" editable="false" layoutX="714.0" layoutY="182.0" prefHeight="25.0" prefWidth="228.0" promptText="TulajID" />
+                     </children>
+                  </VBox>
+					</children>
+				</VBox>
+				<Button fx:id="btnSave2" layoutX="980.0" layoutY="475.0" mnemonicParsing="false" onAction="#doSave2" prefHeight="25.0" prefWidth="75.0" text="Mentés" />
+				<Button fx:id="btnNew2" layoutX="900.0" layoutY="475.0" mnemonicParsing="false" onAction="#doNew2" prefHeight="25.0" prefWidth="75.0" text="Új" />
+				<Button fx:id="btnDelete2" layoutX="1060.0" layoutY="475.0" mnemonicParsing="false" onAction="#doDelete2" prefHeight="25.0" prefWidth="70.0" text="Törlés" />
+				<Label layoutX="547.0" layoutY="15.0" text="Munkák">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Label layoutX="900.0" layoutY="55.0" text="Adatkezelés:">
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Label>
+				<Label layoutX="25.0" layoutY="15.0" text="Tulajdonos:">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Label fx:id="lblTulaj2" layoutX="115.0" layoutY="15.0" text="Tulaj">
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+            <Button fx:id="btnBezaras2" layoutX="1070.0" layoutY="15.0" mnemonicParsing="false" onAction="#doBezaras2" text="Vissza" />
+			</children>
+		</AnchorPane>
+
+
+	</children>
+</AnchorPane>
